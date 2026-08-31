@@ -5,12 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
-    <div id="calculator">
-        <input id="display" readonly placeholder="Enter something...">
+    <div id="loading-screen">
+        <div id = "loading-symbols">
+            <span class="loading-symbol" id = "plus-symbol">+</span>
+            <span class="loading-symbol" id = "minus-symbol">-</span>
+            <span class="loading-symbol" id = "times-symbol">x</span>
+            <span class="loading-symbol" id = "division-symbol">÷</span>
+        </div>
+        <div id="loading-text">Loading Calc...</div>
+    </div>
+    <button id="settings-button" onclick="toggleSettings()">⚙</button>
 
-        <div id="keys">
+<div id="settings-panel">
+    <div id="settings-header">
+        <h2>Settings</h2>
+        <button id="close-settings" onclick="toggleSettings()">✕</button>
+    </div>
+
+    <div class="setting">
+        <label for="operator-color">Theme colour</label>
+        <input type="color" id="operator-color" value="#8040bf">
+    </div>
+
+    <div class="setting">
+        <span>Dark mode</span>
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="setting">
+        <span>Sound effects</span>
+        <label class="switch">
+            <input type="checkbox" id="sound-toggle" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="setting">
+        <span>On-screen buttons</span>
+        <label class="switch">
+            <input type="checkbox" id="buttons-toggle" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+</div>
+    <div id="calculator">
+        <input id="display" readonly placeholder="" onclick="copyToClipboard()">
+
+        <div id="keys-layer-1" class="active">
                 <button onclick="appendtoDisplay('+')" class="operator">+</button>
                 <button onclick="appendtoDisplay('7')">7</button>
                 <button onclick="appendtoDisplay('8')">8</button>
@@ -20,22 +67,41 @@
                 <button onclick="appendtoDisplay('4')">4</button>
                 <button onclick="appendtoDisplay('5')">5</button>
                 <button onclick="appendtoDisplay('6')">6</button>
-
-                <button onclick="appendtoDisplay('*')" class="operator">x</button>
+            
+                <button onclick="appendtoDisplay('x')" class="operator">x</button>
                 <button onclick="appendtoDisplay('1')">1</button>
                 <button onclick="appendtoDisplay('2')">2</button>
                 <button onclick="appendtoDisplay('3')">3</button>
 
-                <button onclick="appendtoDisplay('/')" class="operator">/</button>
+                <button onclick="appendtoDisplay('÷')" class="operator">÷</button>
                 <button onclick="appendtoDisplay('0')">0</button>
                 <button onclick="appendtoDisplay('.')">.</button>
-                <button onclick="clearDisplay()" class="operator">C</button>
-                <button onclick="calculate()" class="operator">=</button>
-
-
+                <button onclick = "clearDisplay()" class="operator">C</button>
+                <button onclick = "calculate()" class="operator">=</button>
+                <button onclick="deleteLast()" >⇥</button>
+                <button onclick =  swaplayer()>⇄</button>
         </div>
-    </div>
+        <div id="keys-layer-2" class="inactive">
+                <button onclick="appendtoDisplay('(')" class = "operator">(</button>
+                <button onclick="appendtoDisplay(')')"class = "operator" >)</button>
+                <button onclick="appendtoDisplay('^')" >^</button>
+                <button onclick="appendtoDisplay('%')" >%</button>
+                <div id="Words">
+                    <button onclick="appendtoDisplay('sin(')" class="operator" >sin</button>
+                    <button onclick="appendtoDisplay('cos(')" >cos</button>
+                    <button onclick="appendtoDisplay('tan(')" >tan</button>
+                    <button onclick="appendtoDisplay('log(')" >log</button>
+                </div>
+                <button onclick="deleteLast()" class = "operator" >⇥</button>
+                <button onclick="appendtoDisplay('π')" >π</button>
+                <button onclick="appendtoDisplay('e')" >e</button>
+                <button onclick= clearDisplay() class="operator">C</button>
 
+                <button onclick=calculate() class="operator">=</button>
+                <button onclick = "appendtoDisplay('sqrt(')" >√</button>
+                <button onclick =  swaplayer()>⇄</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="index.js"></script>
 </body>
 </html>
