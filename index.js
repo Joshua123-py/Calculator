@@ -146,8 +146,10 @@ function deleteLast() {
     if (display.value.length > 0) {
         if (display.value === 'Error' || display.value === 'Infinity' || display.value === '-Infinity') {
             display.value = '';
+            playClick();
         } else {
             display.value = display.value.slice(0, -1);
+            playClick()
         }
     }
 }
@@ -217,6 +219,7 @@ function toggleSettings() {
     const settingsPanel = document.getElementById("settings-panel");
 
     settingsPanel.classList.toggle("open");
+    playSwoosh()
 }
 
 
