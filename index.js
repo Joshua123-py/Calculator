@@ -168,10 +168,6 @@ document.addEventListener('keydown', function (event) {
         event.preventDefault();
         copyToClipboard();
     }
-    else if (event.key === 'Control') {
-        event.preventDefault();
-        swaplayer();
-    }
     else if (
         ['+', '-', '*', '/', '^', '(', ')', '.', 'x', '÷']
         .includes(event.key)
@@ -189,6 +185,15 @@ document.addEventListener('keydown', function (event) {
 
     console.log(`Key pressed: ${event.key}`);
 });
+
+// Handle Ctrl key release to swap layers
+document.addEventListener('keyup', function (event) {
+    if (event.key === 'Control') {
+        event.preventDefault();
+        swaplayer();
+    }
+});
+
 window.addEventListener("load", function () {
     const loadingScreen = document.getElementById("loading-screen");
     console.log("Showing loading screen...")
