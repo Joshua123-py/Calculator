@@ -290,8 +290,7 @@ button:active {
     top: 20px;
     right: 20px;
 
-    width: 55px;
-    height: 55px;
+    size: 60px;
 
     border-radius: 50%;
     border: none;
@@ -451,4 +450,24 @@ button:active {
 }
 .hidden {
     display: none;
+}
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 120px;
+    }
+
+    #calculator {
+        --key-size: clamp(55px, 20vw, 85px);
+        width: min(100%, calc(4 * var(--key-size) + 3 * 15px + 50px));
+    }
+
+    #settings-button {
+        top: 20px;
+        right: 20px;
+    }
+
 }
