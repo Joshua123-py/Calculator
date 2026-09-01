@@ -174,6 +174,8 @@ body.dark-mode {
     cursor: pointer;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #keys-layer-1{
@@ -292,7 +294,8 @@ button:active {
     top: 20px;
     right: 20px;
 
-    size: 60px;
+    width: 60px;
+    height: 60px;
 
     border-radius: 50%;
     border: none;
@@ -464,33 +467,36 @@ button:active {
     }
 
     #calculator {
-        --key-size: clamp(40px, 18vw, 70px);
+        --key-size: clamp(40px, 16vw, 65px);
         width: 100%;
-        max-width: calc(4 * 70px + 3 * 15px + 50px);
+        max-width: calc(4 * 65px + 3 * 12px + 40px);
         margin: 0 auto;
     }
 
     #display {
         font-size: 1.5rem;
-        padding: 15px;
+        padding: 12px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     #keys-layer-1,
     #keys-layer-2 {
-        padding: 15px;
-        gap: 10px;
+        padding: 12px;
+        gap: 8px;
     }
 
     #settings-button {
         top: 10px;
         right: 10px;
-        size: 50px;
+        width: 50px;
+        height: 50px;
         font-size: 1.5rem;
     }
 
     #settings-panel {
         width: 80vw;
-        max-width: 320px;
+        max-width: 280px;
     }
 
 }
@@ -515,17 +521,28 @@ button:active {
     }
 
     #calculator {
-        --key-size: clamp(35px, 16vw, 60px);
+        --key-size: clamp(35px, 15vw, 55px);
+        max-width: calc(4 * 55px + 3 * 8px + 35px);
     }
 
     #display {
         font-size: 1.2rem;
         padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #keys-layer-1,
+    #keys-layer-2 {
+        padding: 10px;
+        gap: 6px;
     }
 
     #settings-button {
         top: 5px;
         right: 5px;
-        size: 45px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
     }
 }
