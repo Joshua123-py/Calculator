@@ -172,6 +172,8 @@ body.dark-mode {
     border-bottom: 5px solid hsl(0, 0%, 30%);
     margin: 0;
     cursor: pointer;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 #keys-layer-1{
@@ -454,20 +456,76 @@ button:active {
 @media (max-width: 600px) {
 
     body {
-        padding: 20px;
+        padding: 10px;
         justify-content: center;
         align-items: flex-start;
-        padding-top: 120px;
+        padding-top: 80px;
+        min-height: 100vh;
     }
 
     #calculator {
-        --key-size: clamp(55px, 20vw, 85px);
-        width: min(100%, calc(4 * var(--key-size) + 3 * 15px + 50px));
+        --key-size: clamp(40px, 18vw, 70px);
+        width: 100%;
+        max-width: calc(4 * 70px + 3 * 15px + 50px);
+        margin: 0 auto;
+    }
+
+    #display {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    #keys-layer-1,
+    #keys-layer-2 {
+        padding: 15px;
+        gap: 10px;
     }
 
     #settings-button {
-        top: 20px;
-        right: 20px;
+        top: 10px;
+        right: 10px;
+        size: 50px;
+        font-size: 1.5rem;
     }
 
+    #settings-panel {
+        width: 80vw;
+        max-width: 320px;
+    }
+
+}
+
+@media (max-width: 400px) {
+    #loading-symbols {
+        width: 30vh;
+        height: 30vh;
+    }
+
+    #loading-text {
+        font-size: 1.2rem;
+    }
+
+    #progress-container {
+        width: 200px;
+    }
+
+    body {
+        padding: 5px;
+        padding-top: 60px;
+    }
+
+    #calculator {
+        --key-size: clamp(35px, 16vw, 60px);
+    }
+
+    #display {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    #settings-button {
+        top: 5px;
+        right: 5px;
+        size: 45px;
+    }
 }
